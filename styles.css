@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #F0E5D8 0%, #F5EBD9 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  min-width: 120px;
+  margin: 0 auto;
+  padding: 0 2px;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  word-break: break-word;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8D4C4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4B5A5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B322C;
+}
+
+
+button[onclick*="toggleAlwaysOnTop"],
+button[onclick*="toggleCompactView"] {
+  flex-shrink: 0 !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+}
+
+
+:root{
+  --chocolate: #6d3239; /* Chocolate Kisses */
+  --mauvelous: #E2C0DE; /* Mauvelous */
+  --caramel: #f6f7bc; /* Caramel */
+  --royal-orange: #F9925A; /* Royal Orange */
+  --svg-stroke: var(--royal-orange);
+  --coral: #C74E51; /* Bittersweet Shimmer */
+  --accent-pink: #f6f7bc; /* rosa más fuerte para el círculo interior */
+  --bg-gradient: linear-gradient(135deg, var(--mauvelous) 0%, var(--caramel) 100%);
+  --card-bg: #FFFFFF;
+  --muted-brown: #553137;
+}
+
+body {
+  background: var(--bg-gradient);
+}
+
+/* App container */
+.app {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+.card {
+  min-height: 240px;
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  padding: 2px 18px 18px 18px;
+  border: 2px solid rgba(212,181,165,0.95);
+}
+
+.header {
+  display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:4px;
+}
+.logo { font-size: clamp(20px, 4vw, 36px); color: var(--chocolate); font-weight:700 }
+.controls { display:flex; gap:8px; align-items:center }
+
+.control-btn {
+  display:flex; align-items:center; justify-content:center;
+  padding:6px; border-radius:10px; min-width:36px; min-height:36px;
+  background: rgba(212,181,165,0.9); color:var(--chocolate); border:1px solid rgba(212,181,165,0.9);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08); cursor:pointer; transition:all .18s ease;
+}
+.control-btn.active { background: var(--chocolate); color: var(--caramel); border-color: rgba(107,31,26,0.9) }
+
+.mode-selector { display:flex; gap:10px; padding:10px; background: var(--caramel); border-radius:18px }
+.mode-btn { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px; border-radius:12px; font-weight:700; font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif; background:transparent; color:var(--muted-brown); border:none; cursor:pointer }
+.mode-btn .mode-icon { font-size:18px }
+.mode-btn .mode-label { font-size:13px; color:var(--muted-brown); margin-top:4px; font-weight:700 }
+.mode-btn.active { background: linear-gradient(90deg, var(--chocolate), var(--coral)); color: var(--caramel); box-shadow:0 6px 18px rgba(0,0,0,0.08); border:2px solid rgba(107,31,26,0.9) }
+
+/* Estadísticas: número y etiqueta */
+.stat .stat-number { font-size:20px; font-weight:700; font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif; margin-bottom:6px }
+.stat .stat-label { font-size:13px; color:var(--chocolate); font-weight:700; font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif }
+
+/* Icono pequeño sobre el número en las estadísticas */
+.stat .stat-icon { font-size:18px; margin-bottom:6px; display:block }
+
+/* Círculo interior donde va el emoji/tomate */
+.inner-circle { width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--accent-pink); border:2px solid rgba(232,212,196,0.95); margin-bottom:8px }
+
+.timer-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; margin: 18px 0 }
+.time-display { font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif; font-size: clamp(28px, 8vw, 48px); font-weight:700; color:var(--chocolate) }
+.emoji { font-size: clamp(18px, 5vw, 36px); color: var(--muted-brown) }
+.time-caption { font-size:14px; color:var(--muted-brown); margin-top:8px; font-weight:700 }
+
+.progress-bar { width:100%; height:12px; background: rgba(232,212,196,0.9); border-radius:999px; overflow:hidden }
+.progress-fill { height:100%; background: var(--progress-fill, linear-gradient(90deg, var(--royal-orange), var(--coral))); width:0%; transition: width 1s linear }
+
+.actions { display:flex; gap:12px; justify-content:center; align-items:center }
+.btn { padding:10px 18px; border-radius:999px; font-weight:700; font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif; cursor:pointer; border:2px solid transparent }
+.btn.primary { background: linear-gradient(90deg, var(--chocolate), var(--coral), var(--royal-orange)); color: var(--caramel); box-shadow:0 8px 20px rgba(139,50,44,0.18); border-color: rgba(107,31,26,0.9) }
+.btn.secondary { background: linear-gradient(90deg, rgba(212,181,165,1), rgba(242,210,180,0.9)); color:var(--chocolate); box-shadow:0 6px 18px rgba(212,181,165,0.18); border-color: rgba(212,181,165,0.95) }
+.btn.small { width: clamp(36px,8vw,56px); height: clamp(36px,8vw,56px); border-radius:50%; display:flex; align-items:center; justify-content:center }
+
+.stats { display:flex; gap:12px; margin-top:12px }
+.stat { flex:1; padding:14px; border-radius:14px; text-align:center }
+.stat.pomo { background: linear-gradient(135deg, var(--chocolate), var(--coral)); color: var(--muted-brown) }
+.stat.sessions { background: linear-gradient(135deg, var(--royal-orange), var(--mauvelous)); color: var(--chocolate) }
+
+.footer-note { text-align:center; color:var(--muted-brown); margin-top:12px; font-size:12px; font-weight:700 }
+
+/* Responsive  */
+@media (max-width:420px){
+  .card { padding: 14px }
+  .mode-selector { gap:6px }
+}
+
+

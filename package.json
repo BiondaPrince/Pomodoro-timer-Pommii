@@ -1,0 +1,54 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "Aplicación Pomodoro Timer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "package": "electron-packager . \"Pomodoro Timer\" --platform=win32 --arch=x64 --icon=Assets/icono.ico --out=release --overwrite"
+  },
+  "build": {
+    "appId": "com.pomodoro.app",
+    "productName": "Pomodoro Timer",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "Assets/icono.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "node_modules/electron/**/*"
+    ]
+  },
+  "keywords": [],
+  "author": "Bionda Principe",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2"
+  }
+}
